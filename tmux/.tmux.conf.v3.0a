@@ -3,7 +3,7 @@ set -g default-terminal 'tmux-256color'
 
 set -g detach-on-destroy off               # Don't exit TMUX on the last pane
 set -g escape-time 0                       # Remove escape-time delay
-set -g history-limit 10000                 # Larger scrollback history
+set -g history-limit 50000                 # Larger scrollback history
 set -g set-clipboard on                    # Use the system clipboard
 set -g prefix C-s                          # Change prefix to Ctrl-S
 set -g base-index 1                        # Start windows at 1
@@ -32,7 +32,7 @@ bind L next-window
 bind r command-prompt "rename-window %%"
 bind ^W list-windows
 bind z resize-pane -Z             # Toggle pane zoom
-bind l refresh-client
+# bind l refresh-client
 bind _ split-window -v -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
 
