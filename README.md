@@ -26,6 +26,9 @@ Then open **Karabiner-Elements** once and grant the driver extension and Input M
 |---|---|
 | Ctrl + C/V/X/Z/A/S/F/T/W/N/... | Cmd + same key (not in terminals or VMs) |
 | Ctrl + Y | Redo |
+| Finder: Ctrl + X, then Ctrl + V | Cut and move files |
+| Caps Lock (tap / hold) | Esc / Ctrl |
+| Shift + Caps Lock | Real Caps Lock |
 | Ctrl + ←/→, Ctrl + Backspace/Del | Word move / delete (terminal too) |
 | Home / End (+Shift, +Ctrl) | Line / document start-end |
 | Cmd + Tab, Cmd + F4 | App switcher, quit app (Alt+Tab / Alt+F4) |

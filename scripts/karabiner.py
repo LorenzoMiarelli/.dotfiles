@@ -71,8 +71,48 @@ def shell(key, mods, command, cond=None):
 
 not_term_vm = unless(TERMINALS + VMS)
 not_vm = unless(VMS)
+finder = [{"type": "frontmost_application_if", "bundle_identifiers": [r"^com\.apple\.finder$"]}]
+cut_pending = [{"type": "variable_if", "name": "finder_cut", "value": 1}]
+
+
+def finder_key(key, to_mods, cut, cond=()):
+    return {
+        "type": "basic",
+        "from": {"key_code": key, "modifiers": {"mandatory": ["control"], "optional": ["caps_lock"]}},
+        "to": [{"key_code": "c" if key == "x" else key, "modifiers": to_mods},
+               {"set_variable": {"name": "finder_cut", "value": cut}}],
+        "conditions": finder + list(cond),
+    }
+
 
 rules = [
+    {
+        # Everywhere, VMs included. Shift+Caps must come first: it is the more specific match
+        "description": "Caps Lock: tap = Esc, hold = Ctrl, Shift+Caps = Caps Lock",
+        "manipulators": [
+            {
+                "type": "basic",
+                "from": {"key_code": "caps_lock", "modifiers": {"mandatory": ["shift"]}},
+                "to": [{"key_code": "caps_lock"}],
+            },
+            {
+                "type": "basic",
+                "from": {"key_code": "caps_lock", "modifiers": {"optional": ["any"]}},
+                "to": [{"key_code": "left_control"}],
+                "to_if_alone": [{"key_code": "escape"}],
+            },
+        ],
+    },
+    {
+        # Finder has no "cut" for files: Ctrl+X copies and remembers it,
+        # the next Ctrl+V becomes Cmd+Option+V (move)
+        "description": "PC: Finder Ctrl+X / Ctrl+V cut and move files",
+        "manipulators": [
+            finder_key("x", ["command"], 1),
+            finder_key("c", ["command"], 0),
+            finder_key("v", ["command", "option"], 0, cut_pending),
+        ],
+    },
     {
         # Everywhere (terminals too: Ghostty turns Option into Alt, and macOS would
         # otherwise steal Ctrl+arrows for "move to Space")
