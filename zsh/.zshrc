@@ -65,8 +65,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
 else
   alias ls='ls --color=auto'
 fi
-alias ll='ls -lh'
+alias ll='ls -alF'
 alias la='ls -A'
+alias l='ls -CF'
 alias lla='ls -lah'
 alias ..='cd ..'
 alias ...='cd ../..'
