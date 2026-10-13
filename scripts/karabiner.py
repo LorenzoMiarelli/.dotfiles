@@ -120,7 +120,7 @@ rules = [
             remap("down_arrow", ["left_option"], "r", ["fn", "control"], optional=[], cond=not_vm),
             remap("l", ["left_option"], "q", ["control", "command"], optional=[], cond=not_vm),  # lock
             remap("tab", ["left_option"], "mission_control", [], optional=[], cond=not_vm),
-            remap("d", ["left_option"], "f11", [], optional=[], cond=not_vm),  # show desktop
+            remap("d", ["left_option"], "f11", ["fn"], optional=[], cond=not_vm),  # show desktop (fn: F11 not volume)
             remap("s", ["left_option", "shift"], "4", ["command", "control", "shift"], optional=[], cond=not_vm),
             shell("e", ["left_option"], "open ~", cond=not_vm),
             # Tap Option alone -> Spotlight; hold -> normal Option

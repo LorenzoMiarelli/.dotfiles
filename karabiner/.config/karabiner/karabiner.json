@@ -2149,7 +2149,9 @@
                                 "to": [
                                     {
                                         "key_code": "f11",
-                                        "modifiers": []
+                                        "modifiers": [
+                                            "fn"
+                                        ]
                                     }
                                 ],
                                 "conditions": [
