@@ -48,4 +48,8 @@ mkdir -p "$HOME/Pictures/Screenshots"
 defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
 
 killall Finder Dock SystemUIServer 2>/dev/null || true
+# launchd does not always relaunch the Dock, and without it Cmd+Tab and
+# desktop switching stop working: make sure it is back
+sleep 2
+pgrep -x Dock >/dev/null || launchctl kickstart "gui/$(id -u)/com.apple.Dock.agent"
 echo "Done. Log out and back in for key repeat and .DS_Store settings to apply everywhere."
