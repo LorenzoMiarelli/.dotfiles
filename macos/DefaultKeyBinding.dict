@@ -1,0 +1,18 @@
+/* PC-style Home/End/PgUp/PgDn in native macOS text fields.
+   Copied (not symlinked: sandboxed apps ignore symlinks) to
+   ~/Library/KeyBindings/DefaultKeyBinding.dict by install-macos.sh.
+   Apps must be restarted to pick up changes. */
+{
+    "\UF729"   = moveToBeginningOfLine:;                          /* Home         */
+    "\UF72B"   = moveToEndOfLine:;                                /* End          */
+    "$\UF729"  = moveToBeginningOfLineAndModifySelection:;        /* Shift-Home   */
+    "$\UF72B"  = moveToEndOfLineAndModifySelection:;              /* Shift-End    */
+    "^\UF729"  = moveToBeginningOfDocument:;                      /* Ctrl-Home    */
+    "^\UF72B"  = moveToEndOfDocument:;                            /* Ctrl-End     */
+    "^$\UF729" = moveToBeginningOfDocumentAndModifySelection:;    /* Ctrl-Shift-Home */
+    "^$\UF72B" = moveToEndOfDocumentAndModifySelection:;          /* Ctrl-Shift-End  */
+    "\UF72C"   = pageUp:;                                         /* PgUp         */
+    "\UF72D"   = pageDown:;                                       /* PgDn         */
+    "$\UF72C"  = pageUpAndModifySelection:;                       /* Shift-PgUp   */
+    "$\UF72D"  = pageDownAndModifySelection:;                     /* Shift-PgDn   */
+}

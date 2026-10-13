@@ -52,6 +52,9 @@ set nobackup
 set noswapfile
 " This allows you to undo changes to a file even after saving it.
 set undodir=~/.vim/backup
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), 'p')
+endif
 set undofile
 set undoreload=10000
 

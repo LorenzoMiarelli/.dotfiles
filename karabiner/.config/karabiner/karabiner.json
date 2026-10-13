@@ -1,0 +1,2266 @@
+{
+    "global": {
+        "show_in_menu_bar": true
+    },
+    "profiles": [
+        {
+            "name": "Default",
+            "selected": true,
+            "virtual_hid_keyboard": {
+                "keyboard_type_v2": "ansi"
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "vendor_id": 1133,
+                        "product_id": 45108
+                    },
+                    "ignore": false
+                }
+            ],
+            "complex_modifications": {
+                "parameters": {
+                    "basic.to_if_alone_timeout_milliseconds": 500
+                },
+                "rules": [
+                    {
+                        "description": "PC: Ctrl+arrows / Ctrl+Backspace / Ctrl+Delete word editing (not in VMs)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "PC: Ctrl+Y redo, Ctrl+F4 close tab (not in terminals, VMs)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "PC: Ctrl+letter/number -> Cmd (not in terminals, VMs)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "a",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "d",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "g",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "i",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "k",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "o",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "r",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "s",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "u",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "x",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "1",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "5",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "6",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "6",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "7",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "7",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "8",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "8",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "0",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "equal_sign",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "equal_sign",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "hyphen",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "hyphen",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "comma",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "pointing_button": "button1",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "pointing_button": "button1",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "PC: Alt+F4 quits, Ctrl+Shift+Esc force quit",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape",
+                                        "modifiers": [
+                                            "command",
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "PC: Win (left Option) - tap = Spotlight, Win+arrows tiling, Win+E/D/L/Tab/Shift+S",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "fn",
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "fn",
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "fn",
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "r",
+                                        "modifiers": [
+                                            "fn",
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": [
+                                            "control",
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "mission_control",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f11",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option",
+                                            "shift"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "command",
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open ~"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
