@@ -157,6 +157,9 @@ rules = [
             # Switch desktop (Space) like Windows 11 Win+Ctrl+arrows; macOS uses Ctrl+arrows
             remap("left_arrow", ["left_option", "control"], "left_arrow", ["control"], optional=[], cond=not_vm),
             remap("right_arrow", ["left_option", "control"], "right_arrow", ["control"], optional=[], cond=not_vm),
+            # ...and Ctrl+Alt+arrows like GNOME (Alt = Cmd key)
+            remap("left_arrow", ["command", "control"], "left_arrow", ["control"], optional=[], cond=not_vm),
+            remap("right_arrow", ["command", "control"], "right_arrow", ["control"], optional=[], cond=not_vm),
             # Window tiling (macOS 15+ built-in: Fn+Ctrl+arrows / F / R)
             remap("left_arrow", ["left_option"], "left_arrow", ["fn", "control"], optional=[], cond=not_vm),
             remap("right_arrow", ["left_option"], "right_arrow", ["fn", "control"], optional=[], cond=not_vm),

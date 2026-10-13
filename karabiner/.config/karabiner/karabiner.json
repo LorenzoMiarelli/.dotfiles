@@ -2176,6 +2176,72 @@
                                     "key_code": "left_arrow",
                                     "modifiers": {
                                         "mandatory": [
+                                            "command",
+                                            "control"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "control"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
                                             "left_option"
                                         ],
                                         "optional": []
