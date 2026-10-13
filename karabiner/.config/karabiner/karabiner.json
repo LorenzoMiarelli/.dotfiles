@@ -42,6 +42,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },

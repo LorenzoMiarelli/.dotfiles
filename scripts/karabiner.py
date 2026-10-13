@@ -92,7 +92,8 @@ rules = [
         "manipulators": [
             {
                 "type": "basic",
-                "from": {"key_code": "caps_lock", "modifiers": {"mandatory": ["shift"]}},
+                # caps_lock optional: once Caps is on, it counts as a held modifier
+                "from": {"key_code": "caps_lock", "modifiers": {"mandatory": ["shift"], "optional": ["caps_lock"]}},
                 "to": [{"key_code": "caps_lock"}],
             },
             {
