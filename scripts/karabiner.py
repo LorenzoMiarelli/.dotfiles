@@ -115,6 +115,15 @@ rules = [
         ],
     },
     {
+        # Any terminal (Terminal.app has no Ctrl+Shift bindings of its own); Ctrl+C stays SIGINT
+        "description": "PC: terminals Ctrl+Shift+C/V/T/W/N/F -> Cmd (copy, paste, tab, close, window, find)",
+        "manipulators": [
+            remap(k, ["control", "shift"], k, ["command"], optional=["caps_lock"],
+                  cond=[{"type": "frontmost_application_if", "bundle_identifiers": TERMINALS}])
+            for k in "cvtwnf"
+        ],
+    },
+    {
         # Everywhere (terminals too: Ghostty turns Option into Alt, and macOS would
         # otherwise steal Ctrl+arrows for "move to Space")
         "description": "PC: Ctrl+arrows / Ctrl+Backspace / Ctrl+Delete word editing (not in VMs)",

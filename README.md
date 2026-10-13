@@ -45,4 +45,4 @@ key is Ctrl like on a PC.
 | Option + Ctrl + ←/→ or Ctrl + Cmd + ←/→ | Previous / next desktop (Space) |
 | Option + E / D / L / Tab | Finder / show desktop / lock / Mission Control |
 | Option + Shift + S | Screenshot area to clipboard |
-| Ghostty: Ctrl + Shift + C/V/T/W/N | Copy / paste / tab / close / window |
+| Terminals: Ctrl + Shift + C/V/T/W/N/F | Copy / paste / tab / close / window / find |
