@@ -27,6 +27,13 @@ key is Ctrl like on a PC.
   Edit the script, not the JSON, then re-run it.
 - `macos/DefaultKeyBinding.dict` makes Home/End work like on Linux/Windows in native text fields.
 
+### Apps and system preferences
+
+```bash
+brew bundle --file ~/.dotfiles/Brewfile   # every app/tool listed in Brewfile
+~/.dotfiles/macos/defaults.sh             # key repeat, Finder, fixed desktops, no .DS_Store on shares
+```
+
 ### Keyboard cheat sheet (Ctrl / Option / Cmd keycaps)
 
 | Keys | Action |
