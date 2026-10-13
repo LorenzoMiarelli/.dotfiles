@@ -2102,8 +2102,74 @@
                         ]
                     },
                     {
-                        "description": "PC: Win (left Option) - tap = Spotlight, Win+arrows tiling, Win+E/D/L/Tab/Shift+S",
+                        "description": "PC: Win (left Option) - tap = Spotlight, Win+arrows tiling, Win+Ctrl+arrows desktops, Win+E/D/L/Tab/Shift+S",
                         "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option",
+                                            "control"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option",
+                                            "control"
+                                        ],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
                             {
                                 "type": "basic",
                                 "from": {

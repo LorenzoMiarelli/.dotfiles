@@ -35,6 +35,7 @@ Then open **Karabiner-Elements** once and grant the driver extension and Input M
 | Ctrl + Shift + Esc | Force Quit |
 | Option (tap) | Spotlight |
 | Option + ←/→/↑/↓ | Tile left / right / fill / restore |
+| Option + Ctrl + ←/→ | Previous / next desktop (Space) |
 | Option + E / D / L / Tab | Finder / show desktop / lock / Mission Control |
 | Option + Shift + S | Screenshot area to clipboard |
 | Ghostty: Ctrl + Shift + C/V/T/W/N | Copy / paste / tab / close / window |

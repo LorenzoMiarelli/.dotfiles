@@ -152,8 +152,11 @@ rules = [
         ],
     },
     {
-        "description": "PC: Win (left Option) - tap = Spotlight, Win+arrows tiling, Win+E/D/L/Tab/Shift+S",
+        "description": "PC: Win (left Option) - tap = Spotlight, Win+arrows tiling, Win+Ctrl+arrows desktops, Win+E/D/L/Tab/Shift+S",
         "manipulators": [
+            # Switch desktop (Space) like Windows 11 Win+Ctrl+arrows; macOS uses Ctrl+arrows
+            remap("left_arrow", ["left_option", "control"], "left_arrow", ["control"], optional=[], cond=not_vm),
+            remap("right_arrow", ["left_option", "control"], "right_arrow", ["control"], optional=[], cond=not_vm),
             # Window tiling (macOS 15+ built-in: Fn+Ctrl+arrows / F / R)
             remap("left_arrow", ["left_option"], "left_arrow", ["fn", "control"], optional=[], cond=not_vm),
             remap("right_arrow", ["left_option"], "right_arrow", ["fn", "control"], optional=[], cond=not_vm),
