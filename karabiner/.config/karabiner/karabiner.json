@@ -13,6 +13,34 @@
                 {
                     "identifiers": {
                         "is_keyboard": true,
+                        "is_built_in_keyboard": true
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "fn"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "fn"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
                         "is_pointing_device": true,
                         "device_address": "d1-68-79-0c-c9-bc"
                     },

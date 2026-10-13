@@ -31,6 +31,7 @@ fi
 
 # ── Completion ───────────────────────────────────────────────────────────
 # Rebuild the completion dump at most once a day (faster startup)
+zmodload zsh/complist        # provides the menuselect keymap used below
 autoload -Uz compinit
 stale=(~/.zcompdump(N.mh+24))
 if [[ ! -f ~/.zcompdump || -n $stale ]]; then compinit; else compinit -C; fi

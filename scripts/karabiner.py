@@ -191,6 +191,15 @@ config = {
             "virtual_hid_keyboard": {"keyboard_type_v2": "ansi"},
             # Modify the mouse too, needed for Ctrl+click -> Cmd+click
             "devices": [
+                # MacBook built-in keyboard: swap Globe (bottom-left) and Ctrl,
+                # so the corner key is Ctrl like on a PC keyboard
+                {
+                    "identifiers": {"is_keyboard": True, "is_built_in_keyboard": True},
+                    "simple_modifications": [
+                        {"from": {"key_code": "fn"}, "to": [{"key_code": "left_control"}]},
+                        {"from": {"key_code": "left_control"}, "to": [{"key_code": "fn"}]},
+                    ],
+                },
                 # BLE660C over Bluetooth reports itself as keyboard + pointing device,
                 # which Karabiner skips by default
                 {"identifiers": {"is_keyboard": True, "is_pointing_device": True, "device_address": "d1-68-79-0c-c9-bc"}, "ignore": False},

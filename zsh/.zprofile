@@ -1,7 +1,11 @@
 # Login shell: environment only (Ghostty and tmux start login shells on macOS)
 
-# Homebrew (macOS Apple Silicon)
-[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+# Homebrew (Apple Silicon, then Intel)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv zsh)"
+fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=vim

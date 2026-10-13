@@ -16,6 +16,13 @@ cd ~/.dotfiles && ./install-macos.sh
 
 Then open **Karabiner-Elements** once and grant the driver extension and Input Monitoring permissions.
 
+Without admin rights (no Homebrew) the script still installs starship, zoxide, fzf, zsh plugins
+and fonts in your home; tmux, Ghostty and Karabiner need Homebrew/IT.
+Machine-specific shell settings (work proxy, PATH, tools) go in `~/.zshrc.local` (not tracked).
+
+On a MacBook, Karabiner swaps **Globe** and **Ctrl** on the built-in keyboard, so the bottom-left
+key is Ctrl like on a PC.
+
 - `scripts/karabiner.py` generates `karabiner/.config/karabiner/karabiner.json` (PC-style shortcuts).
   Edit the script, not the JSON, then re-run it.
 - `macos/DefaultKeyBinding.dict` makes Home/End work like on Linux/Windows in native text fields.
