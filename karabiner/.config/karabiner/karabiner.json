@@ -12,6 +12,14 @@
             "devices": [
                 {
                     "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "device_address": "d1-68-79-0c-c9-bc"
+                    },
+                    "ignore": false
+                },
+                {
+                    "identifiers": {
                         "is_pointing_device": true,
                         "vendor_id": 1133,
                         "product_id": 45108

@@ -144,6 +144,9 @@ config = {
             "virtual_hid_keyboard": {"keyboard_type_v2": "ansi"},
             # Modify the mouse too, needed for Ctrl+click -> Cmd+click
             "devices": [
+                # BLE660C over Bluetooth reports itself as keyboard + pointing device,
+                # which Karabiner skips by default
+                {"identifiers": {"is_keyboard": True, "is_pointing_device": True, "device_address": "d1-68-79-0c-c9-bc"}, "ignore": False},
                 {"identifiers": {"is_pointing_device": True, "vendor_id": 1133, "product_id": 45108}, "ignore": False},
             ],
             "complex_modifications": {
