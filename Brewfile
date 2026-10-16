@@ -36,9 +36,8 @@ cask "google-drive"
 cask "nextcloud"
 cask "tailscale-app"
 
-# Hardware, CAD
+# Hardware
 cask "logi-options+"
-cask "autodesk-fusion"
 
 # App Store (needs to be signed in to the App Store)
 mas "Connective Plugin", id: 1428740565
@@ -47,3 +46,5 @@ mas "WhatsApp", id: 310633997
 # Not available through Homebrew, install by hand:
 # - DaVinci Resolve (+ Blackmagic Proxy Generator)   https://www.blackmagicdesign.com/products/davinciresolve
 # - Goodnotes, DJI Assistant, Belgian eID software (eID Viewer, BEIDToken)
+# - Autodesk Fusion: `brew install --cask autodesk-fusion` only runs the Autodesk
+#   installer (Fusion lives in ~/Applications and updates itself), so it is not tracked here
