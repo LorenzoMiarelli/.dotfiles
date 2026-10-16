@@ -28,7 +28,6 @@ cask "ghostty"
 # Browser, media, productivity
 cask "firefox"
 cask "iina"
-cask "onlyoffice"
 cask "bitwarden"
 
 # Cloud, network
